@@ -1,0 +1,23 @@
+/* 1. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+/* 2. Import Tailwind */
+@import "tailwindcss";
+
+/* 3. Import custom styles */
+@theme {
+  --font-primary: "Cormorant Garamond", serif;
+  --font-secondary: "Inter", sans-serif;
+  --color-primary: #FFFDF8;
+  --color-secondary: #294C39;
+  --color-support: #EBE5D8;
+  --color-background: #E8ECDF;
+  --text-primary: #263B2E;
+  --text-secondary: #74776B;
+  --text-support: #FFFDF8;
+  --text-background: #D0D9CB;
+}
+
+body {
+    font-family: var(--font-secondary);
+}
