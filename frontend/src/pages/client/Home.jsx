@@ -2,6 +2,8 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Topbar from "../../components/Topbar";
 
+import { useNavigate } from "react-router-dom";
+
 const products = [
   {
     image: "./src/assets/products/product-1.png",
@@ -48,6 +50,9 @@ const journal = [
 ];
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Topbar />
@@ -130,7 +135,7 @@ export default function Home() {
               <h1 className="text-[56px] font-medium text-secondary font-primary">
                 Everyday things, extraordinary by nature.
               </h1>
-              <button className="cursor-pointer flex gap-5 bg-transparent border border-secondary text-secondary py-3 px-4 rounded-md">
+              <button onClick={() => navigate("/products")} className="cursor-pointer flex gap-5 bg-transparent border border-secondary text-secondary py-3 px-4 rounded-md">
                 Shop all pieces{" "}
                 <img src="./src/assets/icons/arrow.svg" alt="arrow" />
               </button>

@@ -2,38 +2,39 @@ import Cart from "../assets/icons/cart.svg";
 import Search from "../assets/icons/search.svg";
 import Profile from "../assets/icons/profile.svg";
 import Logo from "../assets/logo.png";
+import { NavLink } from "react-router-dom";
+
+const navigation = [
+  { name: "Home", path: "/" },
+  { name: "Products", path: "/products" },
+  { name: "Journal", path: "/journal" },
+  { name: "Story", path: "/story" },
+  { name: "Process", path: "/process" },
+];
 
 function Navbar() {
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Journal", href: "/journal" },
-    { name: "Story", href: "/story" },
-    { name: "Process", href: "/process" },
-  ];
-
   return (
-    <div className="bg-primary pt-7 px-8 flex items-center justify-between">
+    <div className="bg-primary pt-7 pb-7 flex items-center justify-between">
       <div className="container mx-auto flex items-center justify-between">
         <a className="flex items-center" href="/">
           <img src={Logo} alt="Logo" className="w-10 h-10" />
           <h1 className="text-3xl font-semibold text-secondary">ecoprint</h1>
         </a>
 
-        <nav className="flex items-center space-x-12 text-secondary font-secondary font-medium">
+        <nav className="flex items-center gap-8">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              end={item.href === "/"}
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end={item.path === "/"}
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary hover:text-secondary font-medium"
-                  : "text-secondary hover:text-primary"
+                  ? "text-secondary hover:text-secondary font-semibold underline underline-offset-8"
+                  : "text-secondary font-medium"
               }
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -48,7 +49,7 @@ function Navbar() {
             <img src={Profile} alt="profile" className="w-5 h-5" />
           </a>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
