@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Client Pages
 import Home from "./pages/client/Home";
-import Products from "./pages/client/Products";
+import Products from "./pages/client/product/Products";
 import Journal from "./pages/client/Journal";
 import Story from "./pages/client/Story";
 import Process from "./pages/client/Process";
