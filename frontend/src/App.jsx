@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // Client Pages
 import Home from "./pages/client/Home";
 import Products from "./pages/client/product/Products";
+import ProductDetail from "./pages/client/product/ProductDetail";
 import Journal from "./pages/client/Journal";
 import Story from "./pages/client/Story";
 import Process from "./pages/client/Process";
@@ -18,6 +19,7 @@ function App() {
       {/* Client Routes */}
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<ProductDetail />} />
       <Route path="/journal" element={<Journal />} />
       <Route path="/story" element={<Story />} />
       <Route path="/process" element={<Process />} />

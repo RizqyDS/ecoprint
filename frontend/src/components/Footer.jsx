@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="flex justify-between gap-30">
           <div className="flex flex-col gap-6">
-            <h1 className="text-3xl font-semibold text-primary">ecoprint</h1>
+            <h1 className="text-3xl font-semibold text-primary">Arkaz</h1>
             <p className="text-background w-100">
               A little closer to nature. Thoughtfully made botanical pieces for
               everyday living.
