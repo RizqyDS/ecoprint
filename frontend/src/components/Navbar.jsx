@@ -16,9 +16,9 @@ function Navbar() {
   return (
     <div className="bg-primary pt-7 pb-7 flex items-center justify-between">
       <div className="container mx-auto flex items-center justify-between">
-        <a className="flex items-center" href="/">
+        <a className="flex items-center gap-2" href="/">
           <img src={Logo} alt="Logo" className="w-10 h-10" />
-          <h1 className="text-3xl font-semibold text-secondary">Arkaz</h1>
+          <h1 className="text-3xl font-semibold text-secondary mt-2">Arkaz</h1>
         </a>
 
         <nav className="flex items-center gap-8">

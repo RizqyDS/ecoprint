@@ -63,6 +63,11 @@ export default function ProductDetail() {
     });
   };
 
+  // Produk terkait
+  const relatedProducts = products
+    .filter((item) => item.id !== Number(id))
+    .slice(0, 3);
+
   return (
     <>
       <Topbar />
@@ -72,7 +77,7 @@ export default function ProductDetail() {
         <div className="container mx-auto px-4">
           {/* BREADCRUMB */}
           <p className="text-sm text-gray-500 mb-8">
-            <Link to="/">HOME</Link> / <Link to="/products">SHOP</Link> /{" "}
+            <Link to="/">Home</Link> / <Link to="/products">Shop</Link> /{" "}
             {product.name}
           </p>
 
@@ -115,36 +120,42 @@ export default function ProductDetail() {
             {/* PRODUCT INFORMATION */}
             <div className="flex flex-col gap-5">
               <p className="text-sm uppercase">
-                {categoryLabels[product.category]} / {product.material} / {product.productType}
+                {categoryLabels[product.category]} / {product.material} /{" "}
+                {product.productType}
               </p>
 
-              <h1 className="text-4xl font-primary mt-3">{product.name}</h1>
+              <h1 className="text-6xl text-secondary font-primary mt-3">
+                {product.name}
+              </h1>
 
-              <p className="text-2xl mt-5">
-                $ {product.price.toLocaleString("id-ID")}
+              <p></p>
+
+              <p className="text-2xl mt-2">
+                $ {product.price.toLocaleString("id-ID")}{" "}
+                <span className="text-secondary text-sm">Tax Included</span>
               </p>
 
-              <div className="border-t border-gray-300 my-6" />
-
-              <h2 className="font-semibold mb-3">Product Description</h2>
+              <h2 className="font-semibold mt-3">Product Description</h2>
 
               <p className="text-gray-600 leading-7">{product.description}</p>
 
-              <div className="mt-6">
+              <div className="border-t border-gray-300 my-6" />
+
+              <div className="mt-2">
                 <p className="text-sm">Available Stock: {product.stock}</p>
               </div>
 
               {/* QUANTITY */}
-              <div className="mt-8">
+              <div className="mt-3">
                 <h3 className="font-semibold mb-3">Quantity</h3>
 
                 <div className="flex place-items-center gap-4">
-                  <div className="flex items-center border border-gray-400">
+                  <div className="flex items-center border border-gray-400 rounded-full">
                     <button
                       type="button"
                       onClick={decreaseQuantity}
                       disabled={quantity <= 1}
-                      className="px-5 py-3 hover:bg-gray-100 disabled:opacity-40"
+                      className="px-5 py-3 hover:bg-gray-100 disabled:opacity-40 rounded-full"
                     >
                       -
                     </button>
@@ -157,7 +168,7 @@ export default function ProductDetail() {
                       type="button"
                       onClick={increaseQuantity}
                       disabled={quantity >= product.stock}
-                      className="px-5 py-3 hover:bg-gray-100 disabled:opacity-40"
+                      className="px-5 py-3 hover:bg-gray-100 disabled:opacity-40 rounded-full"
                     >
                       +
                     </button>
@@ -168,10 +179,45 @@ export default function ProductDetail() {
                     type="button"
                     onClick={handleOrder}
                     disabled={product.stock <= 0}
-                    className="w-full bg-black border border-black text-white py-3 hover:bg-gray-800 transition disabled:opacity-50"
+                    className="w-full bg-secondary border-secondary text-white py-3 hover:bg-gray-800 transition disabled:opacity-50 rounded-full cursor-pointer"
                   >
                     {product.stock > 0 ? "Order Now" : "Out of Stock"}
                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                
+          {/* PRODUK TERKAIT */}
+          <div className="bg-primary pt-20 pb-20">
+            <div className="container mx-auto">
+              <div className="flex flex-col justify-start gap-5">
+                <div className="flex items-center justify-between gap-5">
+                  <h1 className="text-[56px] font-medium text-secondary font-primary">
+                    A few kindred pieces.
+                  </h1>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  {relatedProducts.map((item) => (
+                    <Link
+                      to={`/products/${item.id}`}
+                      key={item.id}
+                      className="group"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-80 object-cover group-hover:opacity-80 transition"
+                      />
+
+                      <h3 className="mt-4 font-medium">{item.name}</h3>
+
+                      <p className="mt-2">
+                        $ {item.price.toLocaleString("id-ID")}
+                      </p>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>

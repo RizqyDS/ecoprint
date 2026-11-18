@@ -7,6 +7,7 @@ import ProductDetail from "./pages/client/product/ProductDetail";
 import Journal from "./pages/client/Journal";
 import Story from "./pages/client/Story";
 import Process from "./pages/client/Process";
+import Checkout from "./pages/client/checkout/Checkout";
 
 // Admin Pages
 import Dashboard from "./pages/admin/Dashboard";
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:id" element={<ProductDetail />} />
+      <Route path="/checkout" element={<Checkout />} />
       <Route path="/journal" element={<Journal />} />
       <Route path="/story" element={<Story />} />
       <Route path="/process" element={<Process />} />
