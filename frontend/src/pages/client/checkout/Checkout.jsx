@@ -1,4 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
+import Topbar from "../../../components/Topbar";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 
 export default function Checkout() {
   const location = useLocation();
@@ -17,6 +20,9 @@ export default function Checkout() {
   const total = product.price * quantity;
 
   return (
+    <>
+    <Topbar />
+    <Navbar />
     <div className="container mx-auto py-12">
       <h1 className="text-3xl font-semibold mb-8">
         Checkout
@@ -37,5 +43,7 @@ export default function Checkout() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

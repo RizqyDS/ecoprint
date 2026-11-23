@@ -2,7 +2,7 @@ import Cart from "../assets/icons/cart.svg";
 import Search from "../assets/icons/search.svg";
 import Profile from "../assets/icons/profile.svg";
 import Logo from "../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const navigation = [
   { name: "Home", path: "/" },
@@ -13,6 +13,12 @@ const navigation = [
 ];
 
 function Navbar() {
+  const location = useLocation();
+
+  const isProductPage =
+    location.pathname.startsWith("/products") ||
+    location.pathname === "/checkout";
+
   return (
     <div className="bg-primary pt-7 pb-7 flex items-center justify-between">
       <div className="container mx-auto flex items-center justify-between">
@@ -27,11 +33,14 @@ function Navbar() {
               key={item.path}
               to={item.path}
               end={item.path === "/"}
-              className={({ isActive }) =>
-                isActive
-                  ? "text-secondary hover:text-secondary font-semibold underline underline-offset-8"
-                  : "text-secondary font-medium"
-              }
+              className={({ isActive }) => {
+                const active =
+                  item.path === "/products" ? isProductPage : isActive;
+
+                return active
+                  ? "text-secondary hover:text-secondary font-semibold underline underline-offset-8 decoration-2"
+                  : "text-secondary font-medium";
+              }}
             >
               {item.name}
             </NavLink>

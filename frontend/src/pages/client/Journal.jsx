@@ -1,6 +1,16 @@
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import Topbar from "../../components/Topbar";
 
 export default function Journal() {
   return (
-    <div className="text-black">Journal</div>
+    <>
+      <Topbar />
+      <Navbar />
+      <section>
+        Journal
+      </section>
+      <Footer />
+    </>
   )
 }

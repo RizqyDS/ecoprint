@@ -7,6 +7,8 @@ import products from "../../../data/products";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
+import rating from "../../../assets/icons/rating.svg";
+
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -77,8 +79,14 @@ export default function ProductDetail() {
         <div className="container mx-auto px-4">
           {/* BREADCRUMB */}
           <p className="text-sm text-gray-500 mb-8">
-            <Link to="/">Home</Link> / <Link to="/products">Shop</Link> /{" "}
-            {product.name}
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>{" "}
+            /{" "}
+            <Link to="/products" className="hover:underline">
+              Shop
+            </Link>{" "}
+            / {product.name}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -135,7 +143,7 @@ export default function ProductDetail() {
                 <span className="text-secondary text-sm">Tax Included</span>
               </p>
 
-              <h2 className="font-semibold mt-3">Product Description</h2>
+              <h2 className="font-semibold mt-3 text-secondary">Product Description</h2>
 
               <p className="text-gray-600 leading-7">{product.description}</p>
 
@@ -188,7 +196,28 @@ export default function ProductDetail() {
             </div>
           </div>
 
-                
+          {/* RATING */}
+          <section className="bg-primary pt-20" label="testimonial">
+            <div className="container mx-auto">
+              <div className="flex justify-center items-center gap-15">
+                <div className="flex flex-col items-center gap-8">
+                  <p className="text-[13px]">A LITTLE LOVE, NATURALLY</p>
+                  <img src={rating} alt="rating" />
+                  <h1 className="text-4xl font-primary">
+                    “It feels like wearing a small piece of the forest. The
+                    detail in every leaf is even more beautiful in person.”
+                  </h1>
+                  <p className="text-[13px]">
+                    Maya R. · Eucalyptus Silk Scarf · Verified purchase
+                  </p>
+                  <p className="text-[13px]">
+                    4.9 / 5 from 128 thoughtful reviews
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* PRODUK TERKAIT */}
           <div className="bg-primary pt-20 pb-20">
             <div className="container mx-auto">
@@ -208,7 +237,7 @@ export default function ProductDetail() {
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-80 object-cover group-hover:opacity-80 transition"
+                        className="w-full h-100 object-cover group-hover:opacity-80 transition"
                       />
 
                       <h3 className="mt-4 font-medium">{item.name}</h3>
