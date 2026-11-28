@@ -112,13 +112,13 @@ export default function ProductDetail() {
                     className={`overflow-hidden border-2 ${
                       mainImage === image
                         ? "border-transparent"
-                        : "border-transparent"
+                        : "hover:border-secondary"
                     }`}
                   >
                     <img
                       src={image}
                       alt={`${product.name} view ${index + 1}`}
-                      className="w-full h-32 object-cover"
+                      className="w-full h-32 object-cover cursor-pointer"
                     />
                   </button>
                 ))}
@@ -237,7 +237,7 @@ export default function ProductDetail() {
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-100 object-cover group-hover:opacity-80 transition"
+                        className="w-full h-100 object-cover group-hover:opacity-80 transition rounded-2xl"
                       />
 
                       <h3 className="mt-4 font-medium">{item.name}</h3>

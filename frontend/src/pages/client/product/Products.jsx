@@ -145,7 +145,7 @@ export default function Products() {
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full object-cover"
+                          className="w-full object-cover rounded-2xl"
                         />
 
                         <h2 className="mt-3 font-medium">{product.name}</h2>
